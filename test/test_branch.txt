@@ -1,0 +1,12 @@
+addi t0, x0, 4
+addi t1, t0, 5
+sw t1, 0(x0)
+addi t1, t0, 5
+lw t1, 0(x0)
+bge t0, t1, 16
+addi t0, t0, -1
+sub t0, t0, t1
+addi t0, t0, 1
+add t0, t0, t1
+bge t0, t1, -20
+

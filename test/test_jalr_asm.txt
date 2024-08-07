@@ -1,0 +1,4 @@
+addi t0, x0, 4
+jalr t1, t0, 12
+addi t0, t0, 4
+addi t0, t0, 1
