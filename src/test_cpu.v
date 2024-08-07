@@ -10,7 +10,7 @@ module top_tb ();
     PipeCPU cpu(.clk(clk), .n_rst(n_rst), .n_cycle(n_cycle), .n_exe_instr(n_exe_instr));
 
     initial begin
-        $dumpfile("top_tb.vcd");
+        $dumpfile("../top_tb.vcd");
         $dumpvars(0, top_tb);
     end
 

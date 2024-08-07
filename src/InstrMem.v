@@ -3,7 +3,7 @@ module InstrMem(
     output [31:0] instr
 );
     reg [31:0] instr_mem [1023:0];
-    localparam instr_path = "./test/test_u_bin.txt";
+    localparam instr_path = "../test/test_utype_bin.txt";
     initial begin
         $readmemh(instr_path, instr_mem, 0, 20);
     end

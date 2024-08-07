@@ -1,7 +1,7 @@
 ## A 5-stage pipeline RISC-V Processor
 + Support most of RV32I ISA
 
-already implemented instructions
+Already implemented instructions
 + R-Type: ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND
 + I-Type:
   + ADDI, SLTI, SLTIU, XORI, ORI, ANDI, SLLI, SRLI, SRAI
