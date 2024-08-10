@@ -155,6 +155,7 @@ module PipeCPU(
         .in_opcode(ex_opcode),
         .in_alu_res(ex_alu_res),
         .in_instr_type(ex_instr_type),
+        .in_funct(ex_funct[2:0]),
 
         .out_rd_id(m_rd_id),
         .out_rs2_id(m_rs2_id),
@@ -162,19 +163,21 @@ module PipeCPU(
         .out_pc(m_link_pc),
         .out_opcode(m_opcode),
         .out_alu_res(m_alu_res),
-        .out_instr_type(m_instr_type)
+        .out_instr_type(m_instr_type),
+        .out_funct(m_funct)
     );
 
     //M stage
     wire [4:0] m_rd_id, m_rs2_id;
     wire [31:0] m_rs2_data, m_link_pc, m_alu_res, m_rd_mem_data;
     wire [6:0] m_opcode;
-    wire [2:0] m_instr_type;
+    wire [2:0] m_instr_type, m_funct;
 
     M_stage m_stage(
         .clk(clk), .n_rst(n_rst),
         .alu_res(m_alu_res),
         .rs2_data(m_rs2_data),
+        .funct(m_funct),
         .wr_en_mem(wr_en_mem),
         .wr_mem_fwd(wr_mem_fwd),
         .wr_fwd_data(wb_rd_mem_data),

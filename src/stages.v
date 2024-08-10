@@ -188,9 +188,9 @@ endmodule
 module M_stage(
     input clk,
     input n_rst,
-
     input [31:0] alu_res,
     input [31:0] rs2_data,
+    input [2:0] funct,
     input wr_en_mem,
     input wr_mem_fwd,
     input [31:0] wr_fwd_data,
@@ -205,8 +205,12 @@ module M_stage(
     //output
     RAM ram(
         .clk(clk), .n_rst(n_rst),
-        .rd_addr(mem_addr[15:0]), .wr_addr(mem_addr[15:0]),
-        .wr_en(wr_en_mem), .wr_data(wr_mem_data),
+        .rd_addr(mem_addr[15:0]),
+        .rd_funct(funct),
+        .wr_addr(mem_addr[15:0]),
+        .wr_en(wr_en_mem),
+        .wr_data(wr_mem_data),
+        .wr_funct(funct),
 
         .rd_data(rd_mem_data)
     );

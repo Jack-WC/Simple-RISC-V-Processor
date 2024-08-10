@@ -111,6 +111,7 @@ module EX_M_Reg(
     input [6:0] in_opcode,
     input [31:0] in_alu_res,
     input [2:0] in_instr_type,
+    input [2:0] in_funct,
 
     output [4:0] out_rd_id,
     output [4:0] out_rs2_id,
@@ -118,7 +119,8 @@ module EX_M_Reg(
     output [31:0] out_pc,
     output [6:0] out_opcode,
     output [31:0] out_alu_res,
-    output [2:0] out_instr_type
+    output [2:0] out_instr_type,
+    output [2:0] out_funct
 );
     PipeReg#(.bw(5)) rd_id_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_rd_id), .out(out_rd_id));
     PipeReg#(.bw(5)) rs2_id_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_rs2_id), .out(out_rs2_id));
@@ -127,6 +129,7 @@ module EX_M_Reg(
     PipeReg#(.bw(7)) opcode_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_opcode), .out(out_opcode));
     PipeReg#(.bw(32)) alu_res_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_alu_res), .out(out_alu_res));
     PipeReg#(.bw(3)) instr_type_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_instr_type), .out(out_instr_type));
+    PipeReg#(.bw(3)) funct_reg(.clk(clk), .n_rst(n_rst), .ctr(ctr), .in(in_funct), .out(out_funct));
 
 endmodule
 
